@@ -1196,6 +1196,65 @@ blockquote {
   opacity: 1;
 }
 
+/* ---------- Accessibility (Focus Rings) ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Print Styles ---------- */
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .nav, 
+  .footer, 
+  .hero__bg, 
+  .hero__overlay, 
+  #back-to-top,
+  .skip-nav,
+  .hero__scroll-hint,
+  .preloader {
+    display: none !important;
+  }
+  
+  .hero--inner, .hero--home {
+    background: none;
+    min-height: auto;
+    height: auto;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  h1, h2, h3, h4, p, span, a {
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .section, .content {
+    padding: 2rem 0;
+    background: none !important;
+  }
+  
+  .insight-card, .asset-card, .contact-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+}
+
 /* ---------- 3. Interactive SVG Chart ---------- */
 .perf-chart-container {
   max-width: 800px;

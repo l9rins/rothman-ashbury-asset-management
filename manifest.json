@@ -1,0 +1,17 @@
+{
+  "name": "Rothman Ashbury Asset Management",
+  "short_name": "Rothman Ashbury",
+  "description": "Private single-family office stwearding capital with patience and discipline.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0F1B33",
+  "theme_color": "#0F1B33",
+  "icons": [
+    {
+      "src": "/assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
