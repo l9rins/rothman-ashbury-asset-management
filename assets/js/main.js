@@ -206,43 +206,47 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
 
   /* ---------- 2. Typography Reveals ---------- */
-  // Auto-apply reveal-text to key headers
-  document.querySelectorAll('h1:not(.hero__tagline), h2, .pullquote, .perf-chart-title').forEach(el => {
-    if (!el.classList.contains('reveal-text')) {
-      el.classList.add('reveal-text');
-    }
-  });
-
-  const splitTextObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-text--active');
-        splitTextObserver.unobserve(entry.target);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (!prefersReducedMotion) {
+    // Auto-apply reveal-text to key headers
+    document.querySelectorAll('h1:not(.hero__tagline), h2, .pullquote, .perf-chart-title').forEach(el => {
+      if (!el.classList.contains('reveal-text')) {
+        el.classList.add('reveal-text');
       }
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.reveal-text').forEach(el => {
-    // Split text into words for staggered animation
-    const text = el.innerText;
-    const words = text.split(' ');
-    el.innerHTML = '';
-    
-    words.forEach((word, i) => {
-      const wordSpan = document.createElement('span');
-      wordSpan.classList.add('reveal-text__word');
+    const splitTextObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-text--active');
+          splitTextObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-text').forEach(el => {
+      // Split text into words for staggered animation
+      const text = el.innerText;
+      const words = text.split(' ');
+      el.innerHTML = '';
       
-      const innerSpan = document.createElement('span');
-      innerSpan.classList.add('reveal-text__inner');
-      innerSpan.innerText = word + ' ';
-      innerSpan.style.transitionDelay = `${i * 0.04}s`;
+      words.forEach((word, i) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.classList.add('reveal-text__word');
+        
+        const innerSpan = document.createElement('span');
+        innerSpan.classList.add('reveal-text__inner');
+        innerSpan.innerText = word + ' ';
+        innerSpan.style.transitionDelay = `${i * 0.04}s`;
+        
+        wordSpan.appendChild(innerSpan);
+        el.appendChild(wordSpan);
+      });
       
-      wordSpan.appendChild(innerSpan);
-      el.appendChild(wordSpan);
+      splitTextObserver.observe(el);
     });
-    
-    splitTextObserver.observe(el);
-  });
+  }
 
   /* ---------- 3. Interactive SVG Chart Animation ---------- */
   const chartObserver = new IntersectionObserver((entries) => {

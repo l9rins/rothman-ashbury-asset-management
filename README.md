@@ -23,7 +23,7 @@ To add or update a blog article:
 
 ## How to update performance figures
 1. Open `performance.html` in a code editor.
-2. Locate the `<table class="performance-table">` (around line 78).
+2. Locate the `the `.perf-value` elements (e.g. `<div class="perf-value" data-target="8.4">0.0%</div>`)` (around line 78).
 3. Replace the `—` placeholders inside the `<td>` tags with the actual percentage figures.
 4. Update or remove the holding message ("Performance figures will be published...") directly below the table.
 

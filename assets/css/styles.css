@@ -1288,6 +1288,26 @@ blockquote {
 .back-to-top.visible { bottom: 30px; opacity: 1; visibility: visible; }
 .back-to-top:hover { background: var(--color-gold); transform: translateY(-5px); box-shadow: var(--shadow-elevated); color: var(--color-white); }
 
+/* ---------- Blog Mobile Title Fix ---------- */
+.blog-hero-title {
+  font-size: clamp(1.2rem, 4vw, 2.5rem) !important;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+  .blog-hero-title {
+    font-size: clamp(1.2rem, 5vw, 1.8rem) !important;
+    padding: 0 var(--space-md);
+    -webkit-line-clamp: 4;
+  }
+}
+
 
 /* ==========================================================================
    $5,000 BESPOKE CORPORATE UPGRADES
@@ -1622,7 +1642,7 @@ body.page-leaving {
 }
 
 /* ---------- Custom Cursor ---------- */
-@media (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   body {
     cursor: none; /* Hide default cursor */
   }
