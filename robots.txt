@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /
+
+Sitemap: https://rothmanashbury.com.au/sitemap.xml

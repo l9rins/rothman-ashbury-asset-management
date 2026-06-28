@@ -321,5 +321,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  }
+
+  /* ---------- Copy Email to Clipboard ---------- */
+  const copyEmailBtn = document.getElementById('copy-email-btn');
+  const contactEmail = document.getElementById('contact-email');
+  if (copyEmailBtn && contactEmail) {
+    copyEmailBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(contactEmail.innerText).then(() => {
+        const originalIcon = copyEmailBtn.innerHTML;
+        copyEmailBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        setTimeout(() => {
+          copyEmailBtn.innerHTML = originalIcon;
+        }, 2000);
+      });
+    });
+  }
 
 });

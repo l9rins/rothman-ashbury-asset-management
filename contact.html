@@ -96,8 +96,11 @@
         <p class="contact-card__detail">Brisbane QLD 4000</p>
         <p class="contact-card__detail">Australia</p>
         <div class="contact-card__divider"></div>
-        <p class="contact-card__detail">
-          <a href="mailto:info@rothmanashbury.com.au">info@rothmanashbury.com.au</a>
+        <p class="contact-card__detail" style="display: flex; align-items: center; justify-content: center; gap: var(--space-sm);">
+          <a href="mailto:info@rothmanashbury.com.au" id="contact-email">info@rothmanashbury.com.au</a>
+          <button id="copy-email-btn" style="background: none; border: none; cursor: pointer; color: var(--color-gold); display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; transition: background var(--transition-fast);" aria-label="Copy email address" title="Copy email address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
         </p>
       </div>
     </div>
@@ -118,13 +121,13 @@
   <footer class="footer" id="footer">
     <div class="footer__inner">
       <div>
-        <div class="footer__brand">
+        <a href="index.html" class="footer__brand" style="text-decoration: none;">
           <img src="assets/images/logo.png" alt="Rothman Ashbury" class="footer__logo" loading="lazy">
           <span class="footer__brand-text">
             <span class="footer__brand-name">Rothman Ashbury</span>
             <span class="footer__brand-sub">Asset Management Pty Ltd</span>
           </span>
-        </div>
+        </a>
         <p class="footer__tagline">Patience, discipline and a long view of the world.</p>
       </div>
       <div class="footer__links">
