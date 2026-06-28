@@ -321,8 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  }
-
   /* ---------- Copy Email to Clipboard ---------- */
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const contactEmail = document.getElementById('contact-email');
