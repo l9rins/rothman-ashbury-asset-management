@@ -117,16 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Smooth page load ---------- */
   document.body.classList.add('page-enter');
 
-  /* ---------- Parallax Hero ---------- */
-  const heroBgs = document.querySelectorAll('.hero__bg img');
-  if (heroBgs.length > 0) {
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      heroBgs.forEach(bg => {
-        bg.style.transform = `translateY(${scrollY * 0.3}px) scale(1.05)`;
-      });
-    }, { passive: true });
-  }
+
 
   /* ---------- Back to Top ---------- */
   const backToTopBtn = document.getElementById('back-to-top');
@@ -269,14 +260,19 @@ document.addEventListener('DOMContentLoaded', () => {
      FINAL UI/UX POLISH
      ========================================================================== */
 
-  /* ---------- Preloader ---------- */
+  /* ---------- Preloader (first visit per session only) ---------- */
   const preloader = document.getElementById('preloader');
   if (preloader) {
-    // Wait for the SVG trace animation to finish, then fade out
-    setTimeout(() => {
-      preloader.classList.add('preloader--hidden');
-      setTimeout(() => preloader.remove(), 600); // Remove from DOM after fade
-    }, 1500);
+    if (sessionStorage.getItem('ra_preloader_shown')) {
+      // Already shown this session — remove immediately
+      preloader.remove();
+    } else {
+      sessionStorage.setItem('ra_preloader_shown', '1');
+      setTimeout(() => {
+        preloader.classList.add('preloader--hidden');
+        setTimeout(() => preloader.remove(), 600);
+      }, 1500);
+    }
   }
 
   /* ---------- Custom Interactive Cursor ---------- */
