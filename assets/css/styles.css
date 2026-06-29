@@ -1196,6 +1196,42 @@ blockquote {
   opacity: 1;
 }
 
+/* ---------- Phase 4 Fixes ---------- */
+body {
+  font-weight: 400 !important;
+}
+
+.hero__page-subtitle, .hero__subtitle {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.nav__link.active {
+  position: relative;
+  color: var(--color-gold);
+}
+
+.nav__link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-quart), transform 0.8s var(--ease-out-quart);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---------- Accessibility (Focus Rings) ---------- */
 :focus-visible {
   outline: 2px solid var(--color-gold);

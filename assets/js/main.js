@@ -4,6 +4,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- Active Navigation State ---------- */
+  const currentPath = window.location.pathname;
+  const currentFile = currentPath.split('/').pop() || 'index.html';
+  
+  document.querySelectorAll('.nav__link:not(.nav__link--btn)').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentFile || (href.includes(currentFile) && currentFile !== '')) {
+      link.classList.add('active');
+    }
+  });
+
   /* ---------- Navigation Scroll Effect ---------- */
   const nav = document.querySelector('.nav');
   const isHomePage = nav && nav.classList.contains('nav--transparent');
@@ -97,21 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  /* ---------- Active Navigation Link ---------- */
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinkElements = document.querySelectorAll('.nav__link');
-
-  navLinkElements.forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    const linkPath = href.split('/').pop();
-
-    if (linkPath === currentPath ||
-        (currentPath === '' && linkPath === 'index.html') ||
-        (currentPath === 'index.html' && linkPath === 'index.html')) {
-      link.classList.add('nav__link--active');
-    }
-  });
 
 
   /* ---------- Smooth page load ---------- */
@@ -228,7 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const innerSpan = document.createElement('span');
         innerSpan.classList.add('reveal-text__inner');
-        innerSpan.innerText = word + ' ';
+        // Use non-breaking space to prevent collapse
+        innerSpan.innerHTML = word + '&nbsp;';
         innerSpan.style.transitionDelay = `${i * 0.04}s`;
         
         wordSpan.appendChild(innerSpan);
