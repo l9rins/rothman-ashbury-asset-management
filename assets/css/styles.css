@@ -227,7 +227,7 @@ blockquote {
 .nav__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 max(var(--space-xl), 5vw);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -453,12 +453,16 @@ blockquote {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 max(var(--space-xl), 5vw);
   text-align: left;
 }
 
 .hero__text-box {
   max-width: 800px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* ---------- Buttons ---------- */
@@ -471,11 +475,12 @@ blockquote {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 12px 30px;
+  padding: 14px 32px;
   border-radius: 4px;
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
+  width: fit-content;
 }
 
 .btn--gold {
