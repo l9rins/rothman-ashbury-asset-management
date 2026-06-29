@@ -224,12 +224,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const innerSpan = document.createElement('span');
         innerSpan.classList.add('reveal-text__inner');
-        // Use non-breaking space to prevent collapse
-        innerSpan.innerHTML = word + '&nbsp;';
+        innerSpan.innerText = word;
         innerSpan.style.transitionDelay = `${i * 0.04}s`;
         
         wordSpan.appendChild(innerSpan);
         el.appendChild(wordSpan);
+        
+        // Add a real space between words for native wrapping and rendering
+        if (i < words.length - 1) {
+          el.appendChild(document.createTextNode(' '));
+        }
       });
       
       splitTextObserver.observe(el);
