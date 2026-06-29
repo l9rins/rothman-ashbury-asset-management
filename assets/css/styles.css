@@ -340,11 +340,13 @@ blockquote {
 }
 
 .nav__link--btn {
-  border: 1px solid var(--color-gold);
-  border-radius: 2px;
-  padding: 8px 18px;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 3px;
+  padding: 9px 24px;
   margin-left: 8px;
-  transition: all var(--transition-medium);
+  transition: all var(--transition-fast);
+  background: transparent;
+  letter-spacing: 0.12em;
 }
 
 .nav__link--btn::after {
@@ -356,8 +358,9 @@ blockquote {
 .nav--scrolled .nav__link--btn:hover {
   background-color: var(--color-gold);
   color: var(--color-white) !important;
-  box-shadow: 0 4px 12px rgba(197, 163, 85, 0.3);
+  box-shadow: 0 4px 16px rgba(197, 163, 85, 0.35);
   border-color: var(--color-gold);
+  transform: translateY(-1px);
 }
 
 .nav--transparent .nav__link--btn,
@@ -682,16 +685,21 @@ blockquote {
 }
 
 .asset-card {
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--color-navy-dark);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(197, 163, 85, 0.2);
+  border: 1px solid rgba(197, 163, 85, 0.25);
   border-radius: 4px;
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   text-align: center;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .asset-card::before {
@@ -708,9 +716,9 @@ blockquote {
 
 .asset-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(27, 42, 74, 0.08), 0 0 20px rgba(197, 163, 85, 0.15);
+  box-shadow: 0 15px 40px rgba(27, 42, 74, 0.15), 0 0 20px rgba(197, 163, 85, 0.2);
   border-color: rgba(197, 163, 85, 0.6);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-navy-mid);
 }
 
 .asset-card:hover::before {
@@ -724,9 +732,9 @@ blockquote {
 
 .asset-card__title {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--color-white);
 }
 
 
@@ -981,7 +989,7 @@ blockquote {
   padding: 0 var(--space-xl);
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: start;
+  align-items: center;
   gap: var(--space-2xl);
 }
 
@@ -1607,12 +1615,13 @@ blockquote {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  flex: 1; /* Helps balance flex layout */
+  flex-shrink: 0;
 }
 
 .nav__logo {
-  height: 48px; /* Fixed height for consistent vertical alignment */
+  height: 55px;
   width: auto;
+  object-fit: contain;
 }
 
 .nav__brand-text {
@@ -1798,7 +1807,6 @@ body.page-leaving {
     mix-blend-mode: normal;
     backdrop-filter: blur(2px);
   }
-  }
 }
 
 /* ---------- Phase 5: Readability Polish ---------- */
@@ -1882,11 +1890,12 @@ blockquote {
   height: 100% !important;
 }
 .nav__logo {
-  height: 70px !important;
+  height: 55px !important;
   width: auto !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  object-fit: contain;
 }
 
 @media (max-width: 1024px) {
@@ -1921,6 +1930,36 @@ blockquote {
   padding: 10px 0 !important;
 }
 
+/* Nav links container spacing */
+.nav__links {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 25px !important;
+  margin-left: 60px !important;
+}
+
+@media (max-width: 768px) {
+  .nav__links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--color-navy);
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 100px var(--space-2xl) var(--space-2xl);
+    gap: var(--space-xs) !important;
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.3);
+    transition: right var(--transition-medium);
+    z-index: 1000;
+  }
+  .nav__links.nav__links--open {
+    right: 0;
+  }
+}
+
 /* Fix Hero Indentation & Font Size */
 .hero__tagline {
   font-size: clamp(3rem, 6vw, 4.5rem) !important;
@@ -1952,9 +1991,6 @@ blockquote {
 }
 
 /* Footer alignment */
-.footer__top {
-  align-items: center !important;
-}
 .footer__brand {
   display: flex;
   flex-direction: column;
