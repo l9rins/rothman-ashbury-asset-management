@@ -117,6 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Smooth page load ---------- */
   document.body.classList.add('page-enter');
 
+  /* ---------- Hero Reveal Animations ---------- */
+  const heroReveals = document.querySelectorAll('.hero__reveal');
+  if (heroReveals.length > 0) {
+    setTimeout(() => {
+      heroReveals.forEach(el => el.classList.add('hero__reveal--visible'));
+    }, 300);
+  }
+
 
 
   /* ---------- Back to Top ---------- */

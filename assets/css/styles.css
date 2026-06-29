@@ -2278,3 +2278,280 @@ blockquote {
 .footer__disclaimer-short {
   text-align: right;
 }
+
+/* ============================================
+   HOMEPAGE UPGRADE — New Sections & Polish
+   ============================================ */
+
+/* --- Hero Reveal Animations --- */
+
+.hero__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero__reveal.hero__reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__reveal:nth-child(1) { transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
+.hero__reveal:nth-child(2) { transition: opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s; }
+.hero__reveal:nth-child(3) { transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s; }
+.hero__reveal:nth-child(4) { transition: opacity 0.6s ease 0.65s, transform 0.6s ease 0.65s; }
+.hero__reveal:nth-child(5) { transition: opacity 0.6s ease 0.8s, transform 0.6s ease 0.8s; }
+.hero__reveal:nth-child(6) { transition: opacity 0.6s ease 0.95s, transform 0.6s ease 0.95s; }
+.hero__reveal:nth-child(7) { transition: opacity 0.6s ease 1.1s, transform 0.6s ease 1.1s; }
+
+/* --- Hero Scroll Indicator --- */
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeInScroll 1s ease 1.8s forwards;
+}
+
+.hero__scroll-text {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeInScroll {
+  to { opacity: 1; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+/* --- Legacy Strip --- */
+
+.legacy-strip {
+  background: #0a1628;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(197, 163, 85, 0.15);
+  border-bottom: 1px solid rgba(197, 163, 85, 0.15);
+}
+
+.legacy-strip__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.legacy-strip__item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.legacy-strip__label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.legacy-strip__value {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-white);
+  letter-spacing: 0.01em;
+}
+
+.legacy-strip__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(197, 163, 85, 0.3);
+}
+
+/* --- Our Principles --- */
+
+.principles {
+  background: var(--color-cream);
+  padding: 5rem 0 4.5rem;
+}
+
+.principles__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.principles__eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.principles__title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.principles__header .gold-divider {
+  margin: 0 auto;
+}
+
+.principles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.principles__card {
+  text-align: center;
+  padding: 1rem;
+}
+
+.principles__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 163, 85, 0.3);
+  margin-bottom: 1.25rem;
+  color: var(--color-gold);
+  transition: all 0.4s ease;
+}
+
+.principles__card:hover .principles__icon {
+  background: var(--color-gold);
+  color: var(--color-white);
+  border-color: var(--color-gold);
+}
+
+.principles__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-navy);
+  margin-bottom: 0.6rem;
+}
+
+.principles__card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* --- Begin a Conversation CTA --- */
+
+.cta {
+  background: #0a1628;
+  padding: 4.5rem 0;
+  text-align: center;
+}
+
+.cta__content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cta__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.cta .btn--gold {
+  background: #C9A227;
+  color: #FFFFFF;
+  border: 2px solid #C9A227;
+}
+
+.cta .btn--gold:hover {
+  background: transparent;
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* --- Explore Card Hover Zoom --- */
+
+.explore__card {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    background-size 0.6s ease;
+  background-size: 100%;
+}
+
+.explore__card:hover {
+  background-size: 110%;
+}
+
+/* --- Responsive: Legacy Strip --- */
+
+@media (max-width: 768px) {
+  .legacy-strip__inner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .legacy-strip__divider {
+    width: 40px;
+    height: 1px;
+  }
+
+  .principles__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legacy-strip__value {
+    font-size: 1rem;
+  }
+
+  .principles__title {
+    font-size: 1.8rem;
+  }
+}
