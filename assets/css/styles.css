@@ -1251,6 +1251,22 @@ blockquote {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .explore__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore {
+    padding: 5rem 0 4rem;
+  }
+
+  .explore__title {
+    font-size: 2rem;
+  }
+
+  .explore__card {
+    min-height: 280px;
+  }
+
   .contact-card {
     margin: var(--space-xl) auto;
     padding: var(--space-2xl);
@@ -1272,6 +1288,19 @@ blockquote {
 
   .asset-grid {
     grid-template-columns: 1fr;
+  }
+
+  .explore__card {
+    min-height: 240px;
+    padding: 1.75rem 1.5rem;
+  }
+
+  .explore__card-title {
+    font-size: 1.35rem;
+  }
+
+  .explore__subtitle {
+    font-size: 0.9rem;
   }
 
   .principle {
@@ -2030,14 +2059,186 @@ blockquote {
   background-color: var(--color-gold) !important;
 }
 
-/* Explore Section Background */
-#explore {
-  background-color: #0a1628 !important;
-  background-image: none !important;
+/* ============================================
+   EXPLORE SECTION — Premium Redesign
+   ============================================ */
+
+.explore {
+  background-color: #0a1628;
+  background-image: none;
+  padding: 7rem 0 6rem;
 }
-#explore h2 {
+
+/* --- Header --- */
+
+.explore__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.explore__eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.explore__title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 500;
+  font-style: italic;
   color: var(--color-white);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
 }
+
+.explore .gold-divider {
+  margin: 0 auto 1.5rem;
+}
+
+.explore__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* --- Card Grid --- */
+
+.explore__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* --- Card --- */
+
+.explore__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 340px;
+  padding: 2.25rem 2rem;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(197, 163, 85, 0.15);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+
+/* --- Card Overlay --- */
+
+.explore__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 22, 40, 0.88) 0%,
+    rgba(10, 22, 40, 0.45) 50%,
+    rgba(10, 22, 40, 0.1) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* --- Card Content --- */
+
+.explore__card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.explore__card-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.explore__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-white);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+  transition: color 0.4s ease;
+}
+
+.explore__card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.explore__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    color 0.3s ease;
+}
+
+.explore__card-arrow {
+  transition: transform 0.3s ease;
+}
+
+/* --- Card Hover --- */
+
+.explore__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(197, 163, 85, 0.45);
+}
+
+.explore__card:hover .explore__card-title {
+  color: var(--color-gold);
+}
+
+.explore__card:hover .explore__card-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explore__card:hover .explore__card-arrow {
+  transform: translateX(4px);
+}
+
+/* --- Staggered Reveal Delays --- */
+
+.reveal-delay-1 { transition-delay: 0s; }
+.reveal-delay-2 { transition-delay: 0.1s; }
+.reveal-delay-3 { transition-delay: 0.2s; }
+.reveal-delay-4 { transition-delay: 0.3s; }
 
 /* Footer alignment */
 .footer__brand {
