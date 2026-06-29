@@ -341,8 +341,8 @@ blockquote {
 
 .nav__link--btn {
   border: 2px solid #C9A227;
-  border-radius: 3px;
-  padding: 8px 28px;
+  border-radius: 0;
+  padding: 10px 32px;
   margin-left: 8px;
   transition: all var(--transition-fast);
   background: transparent;
@@ -2037,20 +2037,20 @@ blockquote {
 
 /* Fix Hero Indentation & Font Size */
 .hero__tagline {
-  font-size: clamp(1.62rem, 3vw, 2.4rem) !important;
+  font-size: clamp(2rem, 3.5vw, 2.8rem) !important;
   text-align: left !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.2rem !important;
   line-height: 1.25 !important;
 }
 .hero__subtitle {
-  font-size: clamp(0.82rem, 1.2vw, 0.95rem) !important;
+  font-size: clamp(0.88rem, 1.3vw, 1.02rem) !important;
   text-align: left !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0.65rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.85rem !important;
 }
 .hero__text-box {
   margin-left: 0 !important;
@@ -2064,18 +2064,19 @@ blockquote {
   background-color: var(--color-gold) !important;
 }
 
-/* Hero CTA — Outlined White */
+/* Hero CTA — Gold Brand */
 .hero--home .btn--gold {
-  background: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-white);
+  background: #C9A227;
+  color: #FFFFFF;
+  border: 2px solid #C9A227;
   padding: 12px 32px;
   font-size: 0.8rem;
   transition: all 0.35s ease;
 }
 .hero--home .btn--gold:hover {
-  background: var(--color-white);
-  color: var(--color-navy-dark);
+  background: #b8921f;
+  border-color: #b8921f;
+  color: #FFFFFF;
 }
 
 /* ============================================
