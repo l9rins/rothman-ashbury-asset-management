@@ -237,7 +237,7 @@ blockquote {
 .nav__brand {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   text-decoration: none;
 }
 
@@ -294,7 +294,7 @@ blockquote {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .nav__link {
