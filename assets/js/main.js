@@ -354,4 +354,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- Phase 8: Editorial Features ---------- */
+  if (document.querySelector('.article') && window.location.pathname.includes('/blog/')) {
+    const progressContainer = document.createElement('div');
+    progressContainer.className = 'progress-container';
+    progressContainer.innerHTML = '<div class="progress-bar" id="reading-progress"></div>';
+    document.body.appendChild(progressContainer);
+
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPos = window.scrollY;
+      const progress = (scrollPos / docHeight) * 100;
+      const bar = document.getElementById('reading-progress');
+      if (bar) bar.style.width = progress + '%';
+    });
+  }
 });
