@@ -19,25 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(raf);
   }
 
-  /* ---------- Magnetic Elements ---------- */
-  const magneticElements = document.querySelectorAll('.nav__link, .btn, .footer__brand, .hero__scroll-arrow');
-  if (window.matchMedia("(pointer: fine)").matches) {
-    magneticElements.forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const h = rect.width / 2;
-        const v = rect.height / 2;
-        const x = e.clientX - rect.left - h;
-        const y = e.clientY - rect.top - v;
-        el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        el.style.transition = 'none';
-      });
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = `translate(0px, 0px)`;
-        el.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-      });
-    });
-  }
+
 
   /* ---------- Active Navigation State ---------- */
   const currentPath = window.location.pathname;
