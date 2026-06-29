@@ -294,15 +294,15 @@ blockquote {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .nav__link {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-white);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: var(--space-sm) 0;
   transition: all var(--transition-fast);
