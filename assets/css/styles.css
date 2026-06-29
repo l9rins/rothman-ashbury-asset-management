@@ -306,6 +306,7 @@ blockquote {
   padding: var(--space-sm) 0;
   transition: all var(--transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 
 .nav__link::after {
@@ -1852,3 +1853,7 @@ blockquote {
   color: var(--color-gold);
   font-weight: 500;
 }
+
+/* --- Client Request: Center Headings --- */
+.hero__page-title, .hero__page-subtitle, .content__body h1, .content__body h2, .content__body h3, .content__body h4 { text-align: center; }
+
