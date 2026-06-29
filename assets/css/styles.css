@@ -441,7 +441,7 @@ blockquote {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(6, 16, 40, 0.95) 0%, rgba(6, 16, 40, 0.8) 40%, rgba(6, 16, 40, 0.2) 100%), linear-gradient(90deg, rgba(0,0,0,0.7) 0%, transparent 60%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 50%, transparent 100%);
   z-index: 1;
 }
 
@@ -686,6 +686,8 @@ blockquote {
 
 .asset-card {
   background: var(--color-navy-dark);
+  background-size: cover;
+  background-position: center;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(197, 163, 85, 0.25);
@@ -695,11 +697,30 @@ blockquote {
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  min-height: 200px;
+  min-height: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.asset-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+  transition: background 0.35s ease;
+}
+
+.asset-card:hover::after {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.asset-card__icon,
+.asset-card__title {
+  position: relative;
+  z-index: 1;
 }
 
 .asset-card::before {
@@ -988,8 +1009,8 @@ blockquote {
   margin: 0 auto;
   padding: 0 var(--space-xl);
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: var(--space-2xl);
 }
 
@@ -1985,14 +2006,22 @@ blockquote {
 }
 
 /* Explore Section Background */
-.section--cream {
-  background-color: #ffffff !important;
+#explore {
+  background-color: #0a1628 !important;
   background-image: none !important;
+}
+#explore h2 {
+  color: var(--color-white);
 }
 
 /* Footer alignment */
 .footer__brand {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-md);
+}
+.footer__tagline {
+  text-align: left;
 }
