@@ -457,6 +457,38 @@ blockquote {
   text-align: left;
 }
 
+.hero__text-box {
+  max-width: 800px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 12px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn--gold {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border: 1px solid var(--color-gold);
+}
+
+.btn--gold:hover {
+  background-color: transparent;
+  color: var(--color-gold);
+}
+
 .hero__logo {
   height: 80px; /* Reduced from 120px to save vertical space */
   width: auto;
