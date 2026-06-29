@@ -209,7 +209,7 @@ blockquote {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(40, 32, 28, 0.75); /* Dark brownish/navy translucent as per image */
+  background: #061028;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -218,8 +218,7 @@ blockquote {
 
 .nav--transparent,
 .nav--scrolled {
-  /* Keeping these classes in case JS toggles them, but forcing the same premium dark look */
-  background: rgba(40, 32, 28, 0.85);
+  background: #061028;
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-subtle);
@@ -243,8 +242,8 @@ blockquote {
 }
 
 .nav__logo-wrapper {
-  background: var(--color-white);
-  padding: 6px;
+  background: transparent;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
