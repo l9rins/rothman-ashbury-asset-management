@@ -299,10 +299,9 @@ blockquote {
 
 .nav__link {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 600;
   color: var(--color-white);
-  letter-spacing: 0.1em;
+  font-size: 13px;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: var(--space-sm) 0;
   transition: all var(--transition-fast);
@@ -438,12 +437,7 @@ blockquote {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(6, 16, 40, 0.95) 0%,
-    rgba(6, 16, 40, 0.8) 40%,
-    rgba(6, 16, 40, 0.2) 100%
-  );
+  background: linear-gradient(90deg, rgba(6, 16, 40, 0.95) 0%, rgba(6, 16, 40, 0.8) 40%, rgba(6, 16, 40, 0.2) 100%), linear-gradient(90deg, rgba(0,0,0,0.7) 0%, transparent 60%);
   z-index: 1;
 }
 
@@ -476,7 +470,7 @@ blockquote {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 14px 32px;
-  border-radius: 4px;
+  border-radius: 0;
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
@@ -484,9 +478,9 @@ blockquote {
 }
 
 .btn--gold {
-  background-color: var(--color-gold);
-  color: var(--color-white);
-  border: 1px solid var(--color-gold);
+  background-color: #C9A84C;
+  color: #FFFFFF;
+  border: 1px solid #C9A84C;
 }
 
 .btn--gold:hover {
@@ -508,7 +502,7 @@ blockquote {
 
 .hero__tagline {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  font-size: clamp(2.3rem, 5.2vw, 4.3rem);
   font-weight: 500;
   color: var(--color-white);
   margin-bottom: var(--space-lg);
@@ -1489,7 +1483,7 @@ body {
 
 /* UPGRADE 2: Typography Refinement */
 .hero__tagline {
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem) !important;
+  font-size: clamp(2.5rem, 5.2vw, 4rem) !important;
   max-width: 900px;
   line-height: 1.25 !important;
 }
