@@ -285,7 +285,7 @@ blockquote {
 
 .nav--transparent .nav__brand-sub,
 .nav--scrolled .nav__brand-sub {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-gold);
 }
 
 .nav__list {
